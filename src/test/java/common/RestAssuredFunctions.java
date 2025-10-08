@@ -24,7 +24,10 @@ public class RestAssuredFunctions {
         return given()
                 .contentType(ContentType.JSON)
                 .body(body)
-                .post(url);
+                .post(url)
+                .then()
+                .extract()
+                .response();
     }
 
 
