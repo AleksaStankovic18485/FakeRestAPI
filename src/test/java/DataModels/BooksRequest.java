@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GetBooksRequest implements Serializable
+public class BooksRequest implements Serializable
 {
 
     @SerializedName("id")
@@ -27,10 +27,10 @@ public class GetBooksRequest implements Serializable
     private String publishDate;
     private final static long serialVersionUID = 1528647374608478115L;
 
-    public GetBooksRequest() {
+    public BooksRequest() {
     }
 
-    public GetBooksRequest(Integer id, String title, String description, Integer pageCount, String excerpt, String publishDate) {
+    public BooksRequest(Integer id, String title, String description, Integer pageCount, String excerpt, String publishDate) {
         super();
         this.id = id;
         this.title = title;

@@ -1,7 +1,7 @@
 package suites;
 
 import DataModels.Books;
-import calls.RestAssuredTestAPI;
+import calls.BooksApi;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.restassured.response.Response;
@@ -16,7 +16,7 @@ public class FakeRestTest {
 
     public static boolean isBooksExists(Integer id) {
 
-        Response response = RestAssuredTestAPI.listOfBooksResponse();
+        Response response = BooksApi.listOfBooksResponse();
         String json = response.getBody().asString();
 
         Type listType = new TypeToken<List<Books>>() {}.getType();

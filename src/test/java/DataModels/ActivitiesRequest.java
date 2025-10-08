@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Activities implements Serializable
+public class ActivitiesRequest implements Serializable
 {
 
     @SerializedName("id")
@@ -21,10 +21,10 @@ public class Activities implements Serializable
     private Boolean completed;
     private final static long serialVersionUID = -8168626958207532221L;
 
-    public Activities() {
+    public ActivitiesRequest() {
     }
 
-    public Activities(Integer id, String title, String dueDate, Boolean completed) {
+    public ActivitiesRequest(Integer id, String title, String dueDate, Boolean completed) {
         super();
         this.id = id;
         this.title = title;
