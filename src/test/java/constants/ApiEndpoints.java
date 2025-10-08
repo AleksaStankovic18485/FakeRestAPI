@@ -8,7 +8,7 @@ public class ApiEndpoints {
     public static final String ACTIVITIES = "/api/v1/Activities";
     public static String SINGLE_ACTIVITY(Integer id) {return ACTIVITIES+"/"+id;}
 
-    //Autoi
+    //Autori
     public static final String AUTHORS = "/api/v1/Authors";
     public static String SINGLE_AUTHOR(Integer id) {return AUTHORS+"/"+id;}
 
