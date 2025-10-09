@@ -1,7 +1,5 @@
 package constants;
 
-import DataModels.Users;
-
 public class ApiEndpoints {
 
     //Aktivnosti

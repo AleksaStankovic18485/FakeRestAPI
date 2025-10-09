@@ -18,11 +18,6 @@ public class BooksProvider {
         booksRequest.setPageCount(Faker.instance().number().numberBetween(60, 100));
         booksRequest.setExcerpt(Faker.instance().leagueOfLegends().quote());
 
-
-
-
-
-
         SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         Date randomDate = Faker.instance().date().birthday();
