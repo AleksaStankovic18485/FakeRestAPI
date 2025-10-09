@@ -30,6 +30,35 @@ public class BooksTests extends TestBase {
         booksRequest = BooksProvider.prepareBooksRequest();
         idOfNewBook = BooksApi.postBook(booksRequest).getId();
     }
+    @Test
+    //@Description("Verify book has been created")
+    public void createBookTest(){
+
+        BooksResponse createBooksResponse = BooksApi.postBook(booksRequest);
+
+        booksAsserts.assertCreateNewBook(booksRequest, createBooksResponse);
+    }
+
+    @Test
+    //@Description("Get all books")
+    public void getListOfBooks() {
+        BooksResponse[] booksResponse = BooksApi.listOfBooksResponse();
+        booksAsserts.assertListOfBooks(booksResponse);
+    }
+
+    @Test
+    //@Description("Verify that book can be updated using prepared request")
+    public void updateBookTest() {
+
+        BooksRequest updatedBookRequest = BooksProvider.prepareBooksRequest();
+
+        updatedBookRequest.setId(idOfNewBook);
+
+        BooksResponse updatedBookResponse = BooksApi.updateBook(updatedBookRequest);
+
+        booksAsserts.assertCreateNewBook(updatedBookRequest, updatedBookResponse);
+    }
+
 
 
 }
