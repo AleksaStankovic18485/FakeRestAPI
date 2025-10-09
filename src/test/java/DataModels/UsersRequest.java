@@ -1,28 +1,29 @@
 package DataModels;
 
-import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Users implements Serializable
-{
+import java.io.Serializable;
+
+public class UsersRequest implements Serializable {
 
     @SerializedName("id")
     @Expose
     private Integer id;
+
     @SerializedName("userName")
     @Expose
     private String userName;
+
     @SerializedName("password")
     @Expose
     private String password;
-    private final static long serialVersionUID = 2597505823626202059L;
 
-    public Users() {
-    }
+    private final static long serialVersionUID = 1528647374608478116L;
 
-    public Users(Integer id, String userName, String password) {
-        super();
+    public UsersRequest() {}
+
+    public UsersRequest(Integer id, String userName, String password) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -51,5 +52,4 @@ public class Users implements Serializable
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

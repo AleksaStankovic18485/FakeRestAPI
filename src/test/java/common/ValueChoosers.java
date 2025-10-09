@@ -17,4 +17,5 @@ public class ValueChoosers {
 
         return listOfTitles.get(RandomUtils.nextInt(0, listOfTitles.size()));
     }
+
 }
