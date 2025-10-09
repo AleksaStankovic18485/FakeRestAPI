@@ -2,6 +2,7 @@ package calls;
 
 import DataModels.BooksRequest;
 import DataModels.BooksResponse;
+import com.google.gson.GsonBuilder;
 import common.GsonFunctions;
 import common.RestAssuredFunctions;
 import constants.ApiEndpoints;
@@ -15,6 +16,10 @@ public class BooksApi {
     }
 
     public static BooksResponse postBook(BooksRequest postBooks){
+
+        String jsonPayload = new GsonBuilder().setPrettyPrinting().create().toJson(postBooks);
+        System.out.println("Sending JSON payload:\n" + jsonPayload);
+
         return GsonFunctions.parseSuccessResponseToModel(RestAssuredFunctions.post(ApiEndpoints.BOOKS, postBooks), BooksResponse.class);
     }
 
