@@ -29,4 +29,21 @@ public class GsonFunctions {
         return null;
     }
 
+    public static <T> T parseErrorResponseToModel(Response jsonResponse, Class<T> classOfT){
+        String json = jsonResponse.body().asString();
+        String prettyJsonString="";
+        try {
+            prettyJsonString = new GsonBuilder().setPrettyPrinting().create().toJson(new JsonParser().parse(json));
+            if(jsonResponse.getStatusCode() < 400) {
+                Assert.fail("Endpoint for processing class "+ classOfT+"didn'treturn error: "+ "data["+prettyJsonString+"]");
+            } else {
+                return new Gson().fromJson(prettyJsonString, (Type) classOfT);
+            }
+        }
+        catch (IllegalStateException | JsonSyntaxException exception) {
+            Assert.fail("Detailed message: "+exception.getMessage()+ ", Invalid json format " + prettyJsonString + " for processing class" + classOfT);
+        }
+        return null;
+    }
+
 }
